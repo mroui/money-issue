@@ -26,7 +26,7 @@ export class IssuePage implements OnInit {
   products: Observable<Product[]>;
 
 
-  constructor(private activatedRoute: ActivatedRoute, private alertController: AlertController, 
+  constructor(private activatedRoute: ActivatedRoute, private alertController: AlertController,
               private router: Router, private issueservice: Issueservice, private productsservice: Productsservice) {
   }
 
