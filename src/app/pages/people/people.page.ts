@@ -61,14 +61,14 @@ export class PeoplePage implements OnInit {
     const alert = await this.alertController.create({
       inputs: [{
           name: 'name',
-          placeholder: 'Imię nowej osoby'
+          placeholder: 'New person\'s name'
         }],
       buttons: [{
-        text: 'Anuluj',
+        text: 'Cancel',
         handler: () => {
           alert.dismiss();
         }}, {
-        text: 'Stwórz',
+        text: 'Create',
         handler: data => {
           this.add(data.name);
         }}]
@@ -93,7 +93,7 @@ export class PeoplePage implements OnInit {
 
   async presentToast() {
     const toast = await this.toastCtrl.create({
-      message: 'Imię nie może być puste.',
+      message: 'Name cannot be empty!',
       duration: 2000,
       position: 'bottom'
     });
