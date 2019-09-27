@@ -117,23 +117,23 @@ export class SearchproductsPage implements OnInit {
       }
       const alert = await this.alertController.create({
       header: name,
-      message: 'Podaj cenę produktu',
+      message: 'Enter the price of product',
       inputs: [{
-          name: 'cena',
+          name: 'price',
           type: 'number',
           min: '0',
           value: '0'
         }],
       buttons: [{
-        text: 'Anuluj',
+        text: 'Cancel',
         handler: () => {
           e.target.checked = false;
           this.checkedSearchedProduct = false;
           alert.dismiss();
         }}, {
-        text: 'Dalej',
+        text: 'Next',
         handler: data => {
-          this.setGuys(e, name, data.cena, product);
+          this.setGuys(e, name, data.price, product);
         }}]
     });
       await alert.present();
@@ -149,7 +149,7 @@ export class SearchproductsPage implements OnInit {
 
     this.people.forEach(element => {
       element.forEach( x => {
-        if (x.idIssue == this.idIssue ) {
+        if (x.idIssue === this.idIssue ) {
           this.contacts.push({type: 'checkbox', label: x.name, value: x.name});
           this.pricesAndPersons.push({ id: x.id, idIssue: this.idIssue, name: x.name, price: 0.0});
         }
@@ -159,16 +159,18 @@ export class SearchproductsPage implements OnInit {
 
 
   addProduct(e: any, priceprod: number, guysprod: Array<string>, product: string) {
-    if(this.tempProducts.length == 0) {
+    if(this.tempProducts.length === 0) {
       this.allProducts.push({name: this.nameSearchedProduct, isChecked: true});
     }
     if (guysprod.length > 0) {
       this.productsprices.push({name: product, price: priceprod});
-      let priceforperson = priceprod/guysprod.length;
+      const priceForPerson = priceprod / guysprod.length;
+      // tslint:disable-next-line: prefer-for-of
       for (let i = 0; i < guysprod.length; i++) {
+        // tslint:disable-next-line: prefer-for-of
         for (let j = 0; j < this.pricesAndPersons.length; j++) {
           if (guysprod[i] === this.pricesAndPersons[j].name) {
-            this.pricesAndPersons[j].price += priceforperson;
+            this.pricesAndPersons[j].price += priceForPerson;
           }
         }
       }
@@ -181,20 +183,20 @@ export class SearchproductsPage implements OnInit {
 
 
   async setGuys(e: any, name: string, cena: number, product: string) {
-    let alert = await this.alertController.create({
+    const alert = await this.alertController.create({
       header: name,
-      message: 'Podaj osoby, składające się na produkt',
+      message: 'Select people who pay',
       inputs: this.contacts,
       buttons: [{
-        text: 'Anuluj',
+        text: 'Cancel',
         handler: () => {
           e.target.checked = false;
           this.checkedSearchedProduct = false;
           alert.dismiss();
         }}, {
-        text: 'Dodaj',
+        text: 'Add',
         handler: data => {
-          let guysprod: Array<string> = data;
+          const guysprod: Array<string> = data;
           this.addProduct(e, cena, guysprod, product);
         }}]
     });
@@ -204,7 +206,7 @@ export class SearchproductsPage implements OnInit {
 
   async presentToast() {
     const toast = await this.toastCtrl.create({
-      message: 'Lista osób na składkę nie może być pusta.',
+      message: 'List of people cannot be empty!',
       duration: 2000,
       position: 'bottom'
     });
@@ -215,7 +217,7 @@ export class SearchproductsPage implements OnInit {
     addListOfGetProducts() {
       let foundedprice;
       let sumofproducts;
-      
+
       this.allProducts.forEach( a => {
           if (a.isChecked === true) {
           this.productsprices.forEach( x => {
@@ -232,24 +234,11 @@ export class SearchproductsPage implements OnInit {
         let person: Person;
         this.peopleService.getSpecificPeopleForUpdatePrice(a.id).subscribe(x => {
           person = x;
-          let newprice = person.price + a.price;
+          const newprice = person.price + a.price;
           person.price = newprice;
           this.peopleService.updatePerson(person);
         });
       });
-
-      // console.log(this.issues.length);
-      // this.issues.forEach( element => {
-      //   console.log(element.id);
-      //   if (element.id === this.idIssue) {
-      //     let newissue: Issue = element;
-      //     console.log(newissue)
-      //     console.log(sumofproducts)
-      //     console.log(element.price)
-      //     newissue.price = sumofproducts + element.price;
-      //     this.issueservice.updateIssue(newissue);
-      //     }
-      // });
 
       this.router.navigate(['issue/' + this.idIssue]);
     }
