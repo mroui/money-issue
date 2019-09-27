@@ -1,0 +1,39 @@
+<ion-header >
+  <ion-toolbar color="tertiary">
+    <ion-title>{{issue.title}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding-top="15px">
+
+<div id="empty-list-error" *ngIf="(products | async)?.length === 0">
+    <ion-icon id="empty-list-error-icon" style="color: var(--ion-color-tertiary);" name="basket"></ion-icon>
+    <ion-label>Dodaj osoby i produkty, klikając w przyciski na dole</ion-label>
+</div>
+
+<ion-list id="list-of-products" *ngIf="(products$ | async)?.length !== 0">
+    <ion-item-sliding *ngFor="let product of products | async" #slidingItem class="card card-2" style="margin:15px auto;">
+      <ion-item lines="none" style="display: flex;">
+          <ion-label style="font-size: 16px; font-family: monospace; margin-left: 5px; font-weight: bold;">{{product.name}}</ion-label>
+          <ion-label style="font-size: 16px; font-family: monospace; text-align: right; max-width: 30% !important;" >{{product.price + "zł"}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
+</ion-list>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="tertiary" (click)="addProduct()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
+
+<ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="dark" (click)="navigateToPeople()">
+      <ion-icon name="person"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
+
+</ion-content>

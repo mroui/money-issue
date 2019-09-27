@@ -1,0 +1,40 @@
+<ion-header >
+    <ion-toolbar color="success">
+      <ion-title text-wrap>Produkty</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button text=""></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+  <ion-searchbar type="text" (ionChange)="getItems($event)" debounce="1"></ion-searchbar>
+
+
+  <ion-list>
+    <ion-item *ngFor="let product of tempProducts">
+      <ion-checkbox [(ngModel)]="product.isChecked" (click)="addPriceGuysProduct($event, product.name, product.name)" [disabled]="product.isChecked" slot="start"></ion-checkbox>
+      {{product.name}}
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list *ngIf="tempProducts.length === 0">
+      <ion-item>
+        <ion-checkbox (click)="addPriceGuysProduct($event, nameSearchedProduct, nameSearchedProduct)" [disabled]="checkedSearchedProduct" slot="start"></ion-checkbox>
+        {{nameSearchedProduct}}
+      </ion-item>
+  </ion-list>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="success" (click)="addListOfGetProducts()">
+        <ion-icon name="checkmark"></ion-icon>
+      </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>

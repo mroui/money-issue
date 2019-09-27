@@ -1,0 +1,43 @@
+<ion-header >
+  <ion-toolbar color="dark">
+    <ion-title text-wrap>Osoby</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding-top="15px">
+
+
+    <div id="empty-list-error" *ngIf="(people | async)?.length === 0">
+        <ion-icon id="empty-list-error-icon" style="color: var(--ion-color-dark);" name="person"></ion-icon>
+        <ion-label>Dodaj osoby klikając w przycisk na dole</ion-label>
+    </div>
+    
+    
+    <ion-list id="list-of-people" *ngIf="(people$ | async)?.length !== 0">
+        <ion-item-sliding *ngFor="let person of people | async" #slidingItem class="card card-2" style="margin:15px auto;">
+          <ion-item lines="none" style="display: flex;">
+              <ion-label style="font-size: 16px; font-family: monospace; margin-left: 5px; font-weight: bold;">{{person.name}}</ion-label>
+              <ion-label style="font-size: 16px; font-family: monospace; text-align: right; max-width: 30% !important;" >{{person.price.toFixed(2) + "zł"}}</ion-label>
+          </ion-item>
+    
+          <ion-item-options>
+                <ion-button icon-only expandable color="danger" style="font-size: 95%;" (click)="removePerson(slidingItem, person)">
+                    <ion-icon name="trash"> </ion-icon>
+                </ion-button>
+          </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="dark"(click)="addPerson()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+
+</ion-content>
