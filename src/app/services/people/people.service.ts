@@ -50,21 +50,6 @@ export class PeopleService {
   }
 
 
-  getPeopleAgain(): Observable<Person[]> {
-    this.peopleCollection = this.afs.collection<Person>('people');
-    this.people = this.peopleCollection.snapshotChanges().pipe(
-      map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        });
-      })
-    );
-    return this.people;
-  }
-
-
   getPerson(id: string): Observable<Person> {
     return this.peopleCollection.doc<Person>(id).valueChanges().pipe(
       take(1),
