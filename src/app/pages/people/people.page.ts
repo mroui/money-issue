@@ -70,7 +70,7 @@ export class PeoplePage implements OnInit {
         handler: () => {
           alert.dismiss();
         }}, {
-        text: 'Create',
+        text: 'Add',
         handler: data => {
           this.add(data.name);
         }}]
