@@ -36,20 +36,21 @@ export class HomePage implements OnInit {
   async addIssue() {
     const alert = await this.alertController.create({
       inputs: [{
+          id: 'inputMaxLength',
           name: 'title',
-          placeholder: 'Tytuł nowej składki'
+          placeholder: 'Title'
         }],
       buttons: [{
-        text: 'Anuluj',
+        text: 'Cancel',
         handler: () => {
           alert.dismiss();
         }}, {
-        text: 'Stwórz',
+        text: 'Create',
         handler: data => {
           this.add(data.title);
         }}]
     });
-    await alert.present();
+    await alert.present().then(() => {document.getElementById('inputMaxLength').setAttribute('maxlength', '18'); });
   }
 
 
@@ -70,7 +71,7 @@ export class HomePage implements OnInit {
 
       const time = day + '.' + month + '.' + new Date().getFullYear().toString();
 
-      let newissue =  {title: Title, date: time, price: 0.0 };
+      const newissue =  {title: Title, date: time, price: 0.0 };
 
       this.issueservice.addIssue(newissue);
 
@@ -85,7 +86,7 @@ export class HomePage implements OnInit {
 
   async presentToast() {
     const toast = await this.toastCtrl.create({
-      message: 'Tytuł nie może być pusty.',
+      message: 'Title cannot be empty!',
       duration: 2000,
       position: 'bottom'
     });
