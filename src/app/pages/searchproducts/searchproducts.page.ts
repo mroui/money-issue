@@ -4,9 +4,8 @@ import { AlertController, IonItemSliding, ToastController } from '@ionic/angular
 import { ActivatedRoute, Router } from '@angular/router';
 import { Issue, IssueService } from '../../services/issue/issue.service';
 import { Person, PeopleService } from '../../services/people/people.service';
-import { Product, ProductsService } from '../../services/products/products.service';
+import { ProductsService } from '../../services/products/products.service';
 import { Observable } from 'rxjs';
-import { parse } from 'querystring';
 
 
 export interface DatabaseProduct {
@@ -230,8 +229,8 @@ export class SearchproductsPage implements OnInit {
 
 
     addListOfGetProducts() {
-      let foundedprice;
-      let sumofproducts;
+      let foundedprice = 0.0;
+      let sumofproducts = 0.0;
 
       this.allProducts.forEach( a => {
           if (a.isChecked === true) {
@@ -244,6 +243,10 @@ export class SearchproductsPage implements OnInit {
           });
         }
         });
+
+        console.log(sumofproducts)
+      this.issue.price = sumofproducts;
+      this.issueservice.updateIssue(this.issue);
 
       this.pricesAndPersons.forEach( a => {
         let person: Person;
