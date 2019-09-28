@@ -16,7 +16,7 @@
 
   <ion-list>
     <ion-item *ngFor="let product of tempProducts">
-      <ion-checkbox [(ngModel)]="product.isChecked" (click)="addPriceGuysProduct($event, product.name, product.name)" [disabled]="product.isChecked" slot="start"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="product.isChecked" (click)="addPriceGuysProduct($event, product.name)" [disabled]="product.isChecked" slot="start"></ion-checkbox>
       {{product.name}}
     </ion-item>
   </ion-list>
@@ -24,7 +24,7 @@
 
   <ion-list *ngIf="tempProducts.length === 0">
       <ion-item>
-        <ion-checkbox (click)="addPriceGuysProduct($event, nameSearchedProduct, nameSearchedProduct)" [disabled]="checkedSearchedProduct" slot="start"></ion-checkbox>
+        <ion-checkbox (click)="addPriceGuysProduct($event, nameSearchedProduct)" [disabled]="checkedSearchedProduct" slot="start"></ion-checkbox>
         {{nameSearchedProduct}}
       </ion-item>
   </ion-list>
