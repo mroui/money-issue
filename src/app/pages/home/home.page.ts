@@ -35,6 +35,7 @@ export class HomePage implements OnInit {
 
   async addIssue() {
     const alert = await this.alertController.create({
+      backdropDismiss: false,
       inputs: [{
           id: 'inputMaxLength',
           name: 'title',
