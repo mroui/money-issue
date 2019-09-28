@@ -76,8 +76,6 @@ export class HomePage implements OnInit {
 
       this.issueservice.addIssue(newissue);
 
-      this.navigateToIssue(newissue);
-
     } else {
       this.presentToast();
       this.addIssue();
