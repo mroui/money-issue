@@ -59,6 +59,7 @@ export class PeoplePage implements OnInit {
 
   async addPerson() {
     const alert = await this.alertController.create({
+      backdropDismiss: false,
       inputs: [{
           id: 'inputMaxLength',
           name: 'name',
