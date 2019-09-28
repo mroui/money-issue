@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IonItemSliding, AlertController } from '@ionic/angular';
-import { Issue, Issueservice } from '../../services/issueservice/issueservice.service';
-import { Product, Productsservice } from '../../services/productsservice/productsservice.service';
+import { AlertController } from '@ionic/angular';
+import { Issue, IssueService } from '../../services/issue/issue.service';
+import { Product, ProductsService } from '../../services/products/products.service';
 import { Observable } from 'rxjs';
 
 
@@ -27,7 +27,7 @@ export class IssuePage implements OnInit {
 
 
   constructor(private activatedRoute: ActivatedRoute, private alertController: AlertController,
-              private router: Router, private issueservice: Issueservice, private productsservice: Productsservice) {
+              private router: Router, private issueservice: IssueService, private productsservice: ProductsService) {
   }
 
 

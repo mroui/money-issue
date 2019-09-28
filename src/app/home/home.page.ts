@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, IonItemSliding, AlertController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { Issue, Issueservice } from '../services/issueservice/issueservice.service';
+import { Issue, IssueService } from '../services/issue/issue.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
   issues: Issue[];
 
   constructor(private navCtrl: NavController, private alertController: AlertController,
-              private toastCtrl: ToastController, private router: Router, private issueservice: Issueservice) {
+              private toastCtrl: ToastController, private router: Router, private issueservice: IssueService) {
               }
 
 

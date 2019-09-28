@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, IonItemSliding, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Issue, Issueservice } from '../../services/issueservice/issueservice.service';
-import { Person, Peopleservice } from '../../services/peopleservice/peopleservice.service';
+import { Issue, IssueService } from '../../services/issue/issue.service';
+import { Person, PeopleService } from '../../services/people/people.service';
 import { Observable } from 'rxjs';
 
 
@@ -27,8 +27,8 @@ export class PeoplePage implements OnInit {
 
 
   constructor(private activatedRoute: ActivatedRoute, private alertController: AlertController,
-              private router: Router, private issueservice: Issueservice, private toastCtrl: ToastController,
-              private peopleservice: Peopleservice ) {
+              private router: Router, private issueservice: IssueService, private toastCtrl: ToastController,
+              private peopleservice: PeopleService ) {
   }
 
 

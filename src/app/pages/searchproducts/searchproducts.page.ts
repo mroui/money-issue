@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentReference } from '@angular/fire/firestore';
 import { AlertController, IonItemSliding, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Issue, Issueservice } from '../../services/issueservice/issueservice.service';
-import { Person, Peopleservice } from '../../services/peopleservice/peopleservice.service';
-import { Product, Productsservice } from '../../services/productsservice/productsservice.service';
+import { Issue, IssueService } from '../../services/issue/issue.service';
+import { Person, PeopleService } from '../../services/people/people.service';
+import { Product, ProductsService } from '../../services/products/products.service';
 import { Observable } from 'rxjs';
 
 
@@ -53,8 +53,8 @@ export class SearchproductsPage implements OnInit {
 
   constructor(private alertController: AlertController, private toastCtrl: ToastController,
               private router: Router, private afs: AngularFirestore, private activatedRoute: ActivatedRoute,
-              private issueservice: Issueservice, private peopleService: Peopleservice,
-              private productsservice: Productsservice) {
+              private issueservice: IssueService, private peopleService: PeopleService,
+              private productsservice: ProductsService) {
 
               this.databaseproductsCollection = this.afs.collection<DatabaseProduct>('databaseproducts');
               this.databaseproductsCollection.valueChanges().subscribe(data => {
