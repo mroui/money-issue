@@ -139,6 +139,7 @@ export class SearchproductsPage implements OnInit {
           if (parseFloat(data.price) || parseFloat(data.price) === 0) {
             this.setGuys(e, parseFloat(parseFloat(data.price).toFixed(2)), product);
           } else {
+            this.presentToast('Wrong price format!');
             e.target.checked = false;
             this.checkedSearchedProduct = false;
           }
