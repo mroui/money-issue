@@ -15,7 +15,7 @@ export interface Person {
 @Injectable({
   providedIn: 'root'
 })
-export class Peopleservice {
+export class PeopleService {
 
   private people: Observable<Person[]>;
   private peopleCollection: AngularFirestoreCollection<Person>;

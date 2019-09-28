@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentReference } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
 import { map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -15,7 +15,7 @@ export interface Product {
 @Injectable({
   providedIn: 'root'
 })
-export class Productsservice {
+export class ProductsService {
 
   private products: Observable<Product[]>;
   private productsCollection: AngularFirestoreCollection<Product>;

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentReference } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
 import { map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -13,7 +13,7 @@ export interface Issue {
 @Injectable({
   providedIn: 'root'
 })
-export class Issueservice {
+export class IssueService {
 
   private issues: Observable<Issue[]>;
   private issueCollection: AngularFirestoreCollection<Issue>;
@@ -35,7 +35,7 @@ export class Issueservice {
   getIssues(): Observable<Issue[]> {
     return this.issues;
   }
-  
+
 
   getIssue(id: string): Observable<Issue> {
     return this.issueCollection.doc<Issue>(id).valueChanges().pipe(
