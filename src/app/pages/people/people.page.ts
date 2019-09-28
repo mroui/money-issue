@@ -60,8 +60,9 @@ export class PeoplePage implements OnInit {
   async addPerson() {
     const alert = await this.alertController.create({
       inputs: [{
+          id: 'inputMaxLength',
           name: 'name',
-          placeholder: 'New person\'s name'
+          placeholder: 'Name'
         }],
       buttons: [{
         text: 'Cancel',
@@ -73,7 +74,7 @@ export class PeoplePage implements OnInit {
           this.add(data.name);
         }}]
     });
-    await alert.present();
+    await alert.present().then(() => {document.getElementById('inputMaxLength').setAttribute('maxlength', '18'); });
   }
 
 
