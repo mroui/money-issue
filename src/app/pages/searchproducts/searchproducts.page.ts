@@ -6,6 +6,7 @@ import { Issue, IssueService } from '../../services/issue/issue.service';
 import { Person, PeopleService } from '../../services/people/people.service';
 import { Product, ProductsService } from '../../services/products/products.service';
 import { Observable } from 'rxjs';
+import { parse } from 'querystring';
 
 
 export interface DatabaseProduct {
@@ -33,7 +34,6 @@ export class SearchproductsPage implements OnInit {
   issues: Issue[] = [];
 
   private databaseproductsCollection: AngularFirestoreCollection<DatabaseProduct>;
-  private peopleCollection: AngularFirestoreCollection<Person>;
 
   people: Observable<Person[]>;
 
@@ -81,7 +81,7 @@ export class SearchproductsPage implements OnInit {
   ionViewWillEnter() {
     this.idIssue = this.activatedRoute.snapshot.paramMap.get('id');
     if (this.idIssue ) {
-      this.issueservice.getIssue(this.idIssue ).subscribe(issue => {
+      this.issueservice.getIssue(this.idIssue).subscribe(issue => {
         this.issue = issue;
       });
       this.tempProducts = this.allProducts;
@@ -108,20 +108,23 @@ export class SearchproductsPage implements OnInit {
   }
 
 
-  async addPriceGuysProduct(e: any, name: string, product: string) {
+  async addPriceGuysProduct(e: any, product: string) {
     if (e.target.checked === false) {
       if (this.tempProducts.length === 0) {
         this.checkedSearchedProduct = true;
-        name = this.nameSearchedProduct;
         product = this.nameSearchedProduct;
       }
+
       const alert = await this.alertController.create({
-      header: name,
+      header: product,
+      backdropDismiss: false,
       message: 'Enter the price of product',
       inputs: [{
+          id: 'numberValidator',
           name: 'price',
           type: 'number',
           min: '0',
+          max: '10000',
           value: '0'
         }],
       buttons: [{
@@ -133,16 +136,21 @@ export class SearchproductsPage implements OnInit {
         }}, {
         text: 'Next',
         handler: data => {
-          this.setGuys(e, name, data.price, product);
+          if (parseFloat(data.price) || parseFloat(data.price) === 0) {
+            this.setGuys(e, parseFloat(parseFloat(data.price).toFixed(2)), product);
+          } else {
+            e.target.checked = false;
+            this.checkedSearchedProduct = false;
+          }
         }}]
     });
-      await alert.present();
+      await alert.present().then(() => {document.getElementById('numberValidator').setAttribute('step', '0.01'); });
     }
   }
 
 
   initializeContacts() {
-    this.people = this.peopleService.getPeopleAgain();
+    this.people = this.peopleService.getPeople();
 
     this.contacts = [];
     this.pricesAndPersons = [];
@@ -159,10 +167,10 @@ export class SearchproductsPage implements OnInit {
 
 
   addProduct(e: any, priceprod: number, guysprod: Array<string>, product: string) {
-    if(this.tempProducts.length === 0) {
+    if (this.tempProducts.length === 0) {
       this.allProducts.push({name: this.nameSearchedProduct, isChecked: true});
     }
-    if (guysprod.length > 0) {
+    if (guysprod && guysprod.length > 0) {
       this.productsprices.push({name: product, price: priceprod});
       const priceForPerson = priceprod / guysprod.length;
       // tslint:disable-next-line: prefer-for-of
@@ -170,21 +178,22 @@ export class SearchproductsPage implements OnInit {
         // tslint:disable-next-line: prefer-for-of
         for (let j = 0; j < this.pricesAndPersons.length; j++) {
           if (guysprod[i] === this.pricesAndPersons[j].name) {
-            this.pricesAndPersons[j].price += priceForPerson;
+            this.pricesAndPersons[j].price += parseFloat(priceForPerson.toFixed(2));
           }
         }
       }
     } else {
       e.target.checked = false;
       this.checkedSearchedProduct = false;
-      this.presentToast();
+      this.presentToast('List of people cannot be empty!');
     }
   }
 
 
-  async setGuys(e: any, name: string, cena: number, product: string) {
+  async setGuys(e: any, price: number, product: string) {
     const alert = await this.alertController.create({
-      header: name,
+      header: product,
+      backdropDismiss: false,
       message: 'Select people who pay',
       inputs: this.contacts,
       buttons: [{
@@ -197,16 +206,21 @@ export class SearchproductsPage implements OnInit {
         text: 'Add',
         handler: data => {
           const guysprod: Array<string> = data;
-          this.addProduct(e, cena, guysprod, product);
+          this.addProduct(e, price, guysprod, product);
         }}]
     });
+
     await alert.present();
+
+    if (this.contacts.length === 0) {
+      this.presentToast('List of people is empty! Add one more person!');
     }
+  }
 
 
-  async presentToast() {
+  async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
-      message: 'List of people cannot be empty!',
+      message,
       duration: 2000,
       position: 'bottom'
     });
