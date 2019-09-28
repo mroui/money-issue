@@ -244,7 +244,6 @@ export class SearchproductsPage implements OnInit {
         }
         });
 
-        console.log(sumofproducts)
       this.issue.price = sumofproducts;
       this.issueservice.updateIssue(this.issue);
 
