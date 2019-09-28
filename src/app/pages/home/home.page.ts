@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, IonItemSliding, AlertController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { Issue, IssueService } from '../services/issue/issue.service';
+import { Issue, IssueService } from '../../services/issue/issue.service';
 
 
 @Component({
