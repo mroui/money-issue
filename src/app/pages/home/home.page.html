@@ -6,13 +6,13 @@
 
 <ion-content padding-top="15px">
 
-  <div id="empty-list-error" *ngIf="issues.length == 0">
+  <div id="empty-list-error" *ngIf="issues && issues.length == 0">
     <ion-icon id="empty-list-error-icon" name="document"></ion-icon>
     <ion-label>Create your first whip-round by click '+'</ion-label>
   </div>
 
 
-  <ion-list id="list-of-issues" *ngIf="issues.length > 0" style="margin-bottom: 50px">
+  <ion-list id="list-of-issues" *ngIf="issues && issues.length > 0" style="margin-bottom: 50px">
     <ion-item-sliding no-padding *ngFor="let issue of issues" #slidingItem class="card card-1" style="margin:15px auto;">
 
       <ion-item lines="none" (click)="navigateToIssue(issue)"> 
