@@ -244,7 +244,7 @@ export class SearchproductsPage implements OnInit {
         }
         });
 
-      this.issue.price += sumofproducts;
+      this.issue.price += parseFloat(sumofproducts.toFixed(2));
       this.issueservice.updateIssue(this.issue);
 
       this.pricesAndPersons.forEach( a => {
@@ -252,7 +252,7 @@ export class SearchproductsPage implements OnInit {
         this.peopleService.getSpecificPeopleForUpdatePrice(a.id).subscribe(x => {
           person = x;
           const newprice = person.price + a.price;
-          person.price = newprice;
+          person.price = parseFloat(newprice.toFixed(2));
           this.peopleService.updatePerson(person);
         });
       });
