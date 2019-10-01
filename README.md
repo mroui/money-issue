@@ -33,7 +33,14 @@ Created in **Typescript** using **Ionic** with **Angular** framework & **Firebas
 *Project was made for passing the subject in college.*
 
 ## Features
-~todo
+The main purpose is **creating a list of products, people who owes money and how much**. 
+* Create unlimited whip-rounds
+* Add people who owes money
+* Add products or things that were paid for
+* Choose who paid for each product
+* Information who owes how much money
+* Everything store in cloud database
+* Minimalistic, user friendly design
 
 
 ## License
