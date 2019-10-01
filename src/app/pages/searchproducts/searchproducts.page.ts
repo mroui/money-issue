@@ -238,7 +238,7 @@ export class SearchproductsPage implements OnInit {
               if (x.name === a.name) {
                 foundedprice = x.price;
                 this.productsservice.addProduct({idIssue: this.idIssue, name: a.name, price: foundedprice});
-                sumofproducts += foundedprice;
+                sumofproducts += parseFloat(foundedprice.toFixed(2));
               }
           });
         }
