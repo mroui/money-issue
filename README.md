@@ -42,6 +42,19 @@ The main purpose is **creating a list of products, people who owes money and how
 * Everything store in cloud database
 * Minimalistic, user friendly design
 
+## Technologies
+* Typescript 3.1.6
+* Ionic CLI 4.12.0
+* Ionic Framework 4.4.2
+* Angular 7.2.2, angularfire2 5.2.1
+* Firebase 6.1.0, Cloud Firestore
+* tslint 5.16.0
+
+##Screenshots
+~todo
+
+##Setup
+~todo
 
 ## License
 This project is licensed under the terms of the MIT license.
