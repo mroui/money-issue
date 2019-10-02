@@ -64,7 +64,34 @@ The main purpose is **creating a list of products, people who owes money and how
 </p>
 
 ## Setup
-~todo
+* [Install Node.js](https://nodejs.org/en/download/)
+* Clone repository
+```
+git clone https://github.com/mroui/money-issue.git
+```
+* Enter the main folder `money-issue`
+* Update npm, just in case (Node Package Manager, it comes with node.js installation)
+```
+npm install -g npm
+```
+* Install Ionic Cli
+```
+npm install -g ionic
+```
+* Install NPM Dependencies
+```
+npm install
+```
+* Create Firebase project and add the project configurations to the ./src/environments/environment.ts file
+[Instruction](https://ionicthemes.com/tutorials/about/setting-up-a-database-for-an-ionic-app-with-firebase)
+* Launch App
+```
+# Web overview
+ionic serve
+
+#Android & IOS overview
+ionic serve --lab
+```
 
 ## License
 This project is licensed under the terms of the MIT license.
