@@ -50,7 +50,7 @@ The main purpose is **creating a list of products, people who owes money and how
 * Firebase 6.1.0, Cloud Firestore
 * tslint 5.16.0
 
-##Screenshots
+## Screenshots
 <p align="center">
 	<img src="https://i.ibb.co/ZfDL5mY/ios.png" alt="MoneyIssue IOS"/>
 	<img src="https://i.ibb.co/Y0Wkybt/android.png" alt="MoneyIssue android"/>
@@ -63,7 +63,7 @@ The main purpose is **creating a list of products, people who owes money and how
 	<img src="https://i.ibb.co/6R3SRbG/screen7.png" alt="MoneyIssue whip-round page"/>
 </p>
 
-##Setup
+## Setup
 ~todo
 
 ## License
