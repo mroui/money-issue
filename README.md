@@ -51,7 +51,33 @@ The main purpose is **creating a list of products, people who owes money and how
 * tslint 5.16.0
 
 ##Screenshots
-~todo
+<p align="center">
+  <img src="https://i.ibb.co/Y0Wkybt/android.png" alt="MoneyIssue android"/>
+</p>
+<p align="center">
+  <img src="https://i.ibb.co/ZfDL5mY/ios.png" alt="MoneyIssue IOS"/>
+</p>
+<p align="center">
+  <img src="https://i.ibb.co/3TbDYYt/web.png" alt="MoneyIssue Web"/>
+</p>
+<p align="center">
+  <img src="https://i.ibb.co/r2SMfrm/screen2.png" alt="MoneyIssue people page"/>
+</p>
+<p align="center">
+  <img src="https://i.ibb.co/G5jbnYM/screen3.png" alt="MoneyIssue products page"/>
+</p>
+<p align="center">
+  <img src="https://i.ibb.co/ydW559s/screen4.png" alt="MoneyIssue products page enter price"/>
+</p>
+<p align="center">
+  <img src="https://i.ibb.co/LRX2LLt/screen5.png" alt="MoneyIssue products select people"/>
+</p>
+<p align="center">
+  <img src="https://i.ibb.co/MVqtK08/screen6.png" alt="MoneyIssue products page"/>
+</p>
+<p align="center">
+  <img src="https://i.ibb.co/6R3SRbG/screen7.png" alt="MoneyIssue whip-round page"/>
+</p>
 
 ##Setup
 ~todo
