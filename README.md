@@ -52,15 +52,10 @@ The main purpose is **creating a list of products, people who owes money and how
 
 ## Screenshots
 <p align="center">
-	<img src="https://i.ibb.co/ZfDL5mY/ios.png" alt="MoneyIssue IOS"/>
-	<img src="https://i.ibb.co/Y0Wkybt/android.png" alt="MoneyIssue android"/>
-	<img src="https://i.ibb.co/3TbDYYt/web.png" alt="MoneyIssue Web"/>
-	<img src="https://i.ibb.co/r2SMfrm/screen2.png" alt="MoneyIssue people page"/>
-	<img src="https://i.ibb.co/G5jbnYM/screen3.png" alt="MoneyIssue products page"/>
-	<img src="https://i.ibb.co/ydW559s/screen4.png" alt="MoneyIssue products page enter price"/>
-	<img src="https://i.ibb.co/LRX2LLt/screen5.png" alt="MoneyIssue products select people"/>
-	<img src="https://i.ibb.co/MVqtK08/screen6.png" alt="MoneyIssue products page"/>
-	<img src="https://i.ibb.co/6R3SRbG/screen7.png" alt="MoneyIssue whip-round page"/>
+	<img src="./src/assets/screenshots/android-ios.png" alt="MoneyIssue IOS-Android view"/>
+	<img src="./src/assets/screenshots/web.png" alt="MoneyIssue web app view"/>
+	<img src="./src/assets/screenshots/basicpages-1.png" alt="MoneyIssue people, products pages"/>
+	<img src="./src/assets/screenshots/basicpages-2.png" alt="MoneyIssue products, home pages"/>
 </p>
 
 ## Setup
@@ -82,7 +77,7 @@ npm install -g ionic
 ```
 npm install
 ```
-* Create Firebase project and add the project configurations to the ./src/environments/environment.ts file
+* Create Firebase project and add the project configurations to the ./src/environments/environment.ts file -> 
 [Instruction](https://ionicthemes.com/tutorials/about/setting-up-a-database-for-an-ionic-app-with-firebase)
 * Launch App
 ```
