@@ -43,6 +43,7 @@ The main purpose is **creating a list of products, people who owes money and how
 * Minimalistic, user friendly design
 
 ## Technologies
+* Node.js 10.15.3
 * Typescript 3.1.6
 * Ionic CLI 4.12.0
 * Ionic Framework 4.4.2
