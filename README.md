@@ -11,6 +11,7 @@
 * [Introduction](#introduction)
 * [Features](#features)
 * [Technologies](#technologies)
+* [Demo](#demo)
 * [Screenshots](#screenshots)
 * [Setup](#setup)
 * [License](#license)
@@ -50,6 +51,9 @@ The main purpose is **creating a list of products, people who owes money and how
 * Angular 7.2.2, angularfire2 5.2.1
 * Firebase 6.1.0, Cloud Firestore
 * tslint 5.16.0
+
+## Demo
+[Live Demo](https://moneyissue-2e684.firebaseapp.com/home)
 
 ## Screenshots
 <p align="center">
