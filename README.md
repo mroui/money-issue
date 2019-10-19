@@ -53,10 +53,9 @@ The main purpose is **creating a list of products, people who owes money and how
 
 ## Screenshots
 <p align="center">
-	<img src="./src/assets/screenshots/android-ios.png" alt="MoneyIssue IOS-Android view"/>
-	<img src="./src/assets/screenshots/web.PNG" alt="MoneyIssue web app view"/>
-	<img src="./src/assets/screenshots/basicpages-1.png" alt="MoneyIssue people, products pages"/>
-	<img src="./src/assets/screenshots/basicpages-2.png" alt="MoneyIssue products, home pages"/>
+	<img src="./src/assets/screenshots/screenshot-1.png" alt="MoneyIssue screenshot-1 app preview"/>
+	<img src="./src/assets/screenshots/screenshot-2.png" alt="MoneyIssue screenshot-2 app preview"/>
+	<img src="./src/assets/screenshots/screenshot-3.png" alt="MoneyIssue screenshot-3 app preview"/>
 </p>
 
 ## Setup
