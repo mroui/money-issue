@@ -15,7 +15,7 @@
     <ion-label>Add people and products by click buttons at the bottom</ion-label>
 </div>
 
-<ion-list id="list-of-products" *ngIf="(products$ | async)?.length !== 0">
+<ion-list id="list-of-products" *ngIf="(products | async)?.length !== 0">
     <ion-item-sliding *ngFor="let product of products | async" #slidingItem class="card card-2" style="margin:15px auto;">
       <ion-item lines="none" style="display: flex;">
           <ion-label style="font-size: 16px; font-family: monospace; margin-left: 5px; font-weight: bold;">{{product.name}}</ion-label>

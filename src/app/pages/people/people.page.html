@@ -17,7 +17,7 @@
     </div>
     
     
-    <ion-list id="list-of-people" *ngIf="(people$ | async)?.length !== 0">
+    <ion-list id="list-of-people" *ngIf="(people | async)?.length !== 0">
         <ion-item-sliding *ngFor="let person of people | async" #slidingItem class="card card-2" style="margin:15px auto;">
           <ion-item lines="none" style="display: flex;">
               <ion-label style="font-size: 16px; font-family: monospace; margin-left: 5px; font-weight: bold;">{{person.name}}</ion-label>
